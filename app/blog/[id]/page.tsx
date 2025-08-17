@@ -2,7 +2,7 @@
 
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { mockBlogs } from '../../lib/mockData';
+import { mockBlogs } from "../../../lib/mockData";
 import { ArrowLeft, Calendar, User, ExternalLink } from 'lucide-react';
 
 interface BlogPageProps {
