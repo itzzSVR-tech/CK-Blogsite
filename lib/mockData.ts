@@ -1,0 +1,168 @@
+import { User, Blog } from './types';
+
+export const mockUsers: User[] = [
+  {
+    id: '1',
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+    year: '2024',
+    domain: 'Computer Science',
+    registrationNumber: 'CS2024001',
+    referenceCode: 'REF001',
+    role: 'admin',
+    isActive: true,
+    createdAt: '2024-01-15T10:00:00Z',
+  },
+  {
+    id: '2',
+    name: 'Jane Smith',
+    email: 'jane.smith@example.com',
+    year: '2024',
+    domain: 'Engineering',
+    registrationNumber: 'EN2024002',
+    referenceCode: 'REF002',
+    role: 'verified',
+    isActive: true,
+    createdAt: '2024-01-16T11:00:00Z',
+  },
+  {
+    id: '3',
+    name: 'Bob Johnson',
+    email: 'bob.johnson@example.com',
+    year: '2023',
+    domain: 'Business',
+    registrationNumber: 'BU2023003',
+    referenceCode: 'REF003',
+    role: 'verified',
+    isActive: true,
+    createdAt: '2024-01-17T12:00:00Z',
+  },
+  {
+    id: '4',
+    name: 'Alice Brown',
+    email: 'alice.brown@example.com',
+    year: '2024',
+    domain: 'Arts',
+    registrationNumber: 'AR2024004',
+    referenceCode: 'REF004',
+    role: 'unverified',
+    isActive: false,
+    createdAt: '2024-01-18T13:00:00Z',
+  },
+  {
+    id: '5',
+    name: 'Charlie Wilson',
+    email: 'charlie.wilson@example.com',
+    year: '2023',
+    domain: 'Science',
+    registrationNumber: 'SC2023005',
+    referenceCode: 'REF005',
+    role: 'unverified',
+    isActive: false,
+    createdAt: '2024-01-19T14:00:00Z',
+  },
+];
+
+export const mockBlogs: Blog[] = [
+  {
+    id: '1',
+    title: 'Getting Started with Next.js 14',
+    content: 'Next.js 14 introduces the App Router, a new paradigm for building React applications. This article will guide you through the key features and how to get started with this powerful framework...',
+    author: {
+      id: '2',
+      name: 'Jane Smith',
+      email: 'jane.smith@example.com',
+    },
+    status: 'published',
+    referenceLinks: [
+      'https://nextjs.org/docs',
+      'https://react.dev/learn',
+    ],
+    createdAt: '2024-01-20T09:00:00Z',
+    updatedAt: '2024-01-20T09:00:00Z',
+    publishedAt: '2024-01-20T10:00:00Z',
+  },
+  {
+    id: '2',
+    title: 'The Future of Web Development',
+    content: 'Web development is evolving rapidly with new technologies and frameworks emerging every day. In this comprehensive guide, we explore the trends that are shaping the future of web development...',
+    author: {
+      id: '3',
+      name: 'Bob Johnson',
+      email: 'bob.johnson@example.com',
+    },
+    status: 'pending',
+    referenceLinks: [
+      'https://web.dev/',
+      'https://developer.mozilla.org/',
+    ],
+    createdAt: '2024-01-21T14:00:00Z',
+    updatedAt: '2024-01-21T14:00:00Z',
+  },
+  {
+    id: '3',
+    title: 'Understanding TypeScript Generics',
+    content: 'TypeScript generics are a powerful feature that allows you to create reusable components. This tutorial will walk you through the basics and advanced concepts of generics...',
+    author: {
+      id: '2',
+      name: 'Jane Smith',
+      email: 'jane.smith@example.com',
+    },
+    status: 'draft',
+    referenceLinks: [
+      'https://www.typescriptlang.org/docs/',
+    ],
+    createdAt: '2024-01-22T16:00:00Z',
+    updatedAt: '2024-01-22T16:00:00Z',
+  },
+  {
+    id: '4',
+    title: 'Building Responsive UIs with TailwindCSS',
+    content: 'TailwindCSS has revolutionized how we build user interfaces. Learn how to create beautiful, responsive designs using utility-first CSS framework...',
+    author: {
+      id: '3',
+      name: 'Bob Johnson',
+      email: 'bob.johnson@example.com',
+    },
+    status: 'rejected',
+    referenceLinks: [
+      'https://tailwindcss.com/docs',
+    ],
+    createdAt: '2024-01-23T11:00:00Z',
+    updatedAt: '2024-01-23T11:00:00Z',
+    rejectionReason: 'Content needs more technical depth and examples.',
+  },
+  {
+    id: '5',
+    title: 'Introduction to React Hooks',
+    content: 'React Hooks have changed how we write functional components. This guide covers useState, useEffect, and custom hooks with practical examples...',
+    author: {
+      id: '2',
+      name: 'Jane Smith',
+      email: 'jane.smith@example.com',
+    },
+    status: 'published',
+    referenceLinks: [
+      'https://react.dev/reference/react',
+      'https://react.dev/learn/hooks-overview',
+    ],
+    createdAt: '2024-01-24T13:00:00Z',
+    updatedAt: '2024-01-24T13:00:00Z',
+    publishedAt: '2024-01-24T15:00:00Z',
+  },
+];
+
+export const years = ['2020', '2021', '2022', '2023', '2024'];
+
+export const domains = [
+  'Computer Science',
+  'Engineering',
+  'Business',
+  'Arts',
+  'Science',
+  'Medicine',
+  'Law',
+  'Education',
+  'Social Sciences',
+  'Other',
+];

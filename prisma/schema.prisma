@@ -1,0 +1,102 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl= env("DIRECT_URL")
+}
+
+enum UserStatus {
+  PENDING
+  VERIFIED
+  REJECTED   // 👈 Added for rejected users
+}
+
+enum UserRole {
+  MEMBER
+  ADMIN
+}
+
+enum BlogStatus {
+  DRAFT
+  PENDING_REVIEW
+  PUBLISHED
+  REJECTED
+}
+
+enum TokenType {
+  ACTIVATION
+  RESET
+  REFRESH
+}
+
+model User {
+  id             String     @id @default(cuid())
+  name           String
+  email          String     @unique
+  passwordHash   String?
+  registrationNo String
+  year           String
+  domain         String
+  status         UserStatus @default(PENDING)
+  role           UserRole   @default(MEMBER)
+  referenceCode  String?
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  // Relations
+  blogs        Blog[]
+  tokens       Token[]
+  adminActions AdminAction[]
+
+  @@map("users")
+}
+
+model Blog {
+  id        String     @id @default(cuid())
+  title     String
+  content   String
+  status    BlogStatus @default(DRAFT)
+  authorId  String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  // Relations
+  author User @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@map("blogs")
+}
+
+model Token {
+  id        String    @id @default(cuid())
+  userId    String
+  hashed    String
+  type      TokenType
+  expiresAt DateTime
+  createdAt DateTime  @default(now())
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("tokens")
+}
+
+model AdminAction {
+  id          String   @id @default(cuid())
+  adminId     String
+  action      String
+  targetType  String // 'user' or 'blog'
+  targetId    String
+  description String?
+  createdAt   DateTime @default(now())
+
+  // Relations
+  admin User @relation(fields: [adminId], references: [id], onDelete: Cascade)
+
+  @@map("admin_actions")
+}
